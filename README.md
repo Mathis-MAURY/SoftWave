@@ -6,7 +6,6 @@
 
 ```
 softwave/
-├── public/                 # Racine web (à pointer avec Apache/Nginx)
 │   ├── index.html          # Version statique
 │   ├── index.php           # Version dynamique PHP (recommandée)
 │   ├── css/
