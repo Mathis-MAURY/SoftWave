@@ -128,7 +128,3 @@ git push origin feature/stripe-integration
 ## 📄 Licence
 
 MIT License – voir [LICENSE](LICENSE)
-
----
-
-Made with ❤️ by SoftWave Team
