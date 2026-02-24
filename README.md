@@ -124,7 +124,3 @@ git push origin feature/stripe-integration
 - MySQL >= 8.0 ou MariaDB >= 10.6
 - Apache ou Nginx
 - Optionnel: Composer (pour PHPMailer, etc.)
-
-## 📄 Licence
-
-MIT License – voir [LICENSE](LICENSE)
