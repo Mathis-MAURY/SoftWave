@@ -1,0 +1,44 @@
+# SoftWave – .gitignore
+
+# Configuration sensible
+includes/config.php
+
+# Dépendances
+vendor/
+node_modules/
+
+# Variables d'environnement
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+logs/
+
+# Uploads utilisateurs
+public/uploads/
+public/downloads/
+
+# IDE
+.vscode/
+.idea/
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cache
+*.cache
+.cache/
+
+# Build
+dist/
+build/
+
+# Composer
+composer.lock
+
+# PHP
+*.php~

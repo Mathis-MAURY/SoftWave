@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SoftWave – Logiciels professionnels pour booster votre productivité. PDF, Sécurité, Cloud et Créativité.">
+    <title>SoftWave – Logiciels Professionnels</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== HEADER / NAV ===== -->
+<header class="header" id="header">
+    <nav class="nav container">
+        <a href="#" class="nav__logo">
+            <span class="logo-icon">⬡</span>
+            <span>Soft<strong>Wave</strong></span>
+        </a>
+        <ul class="nav__links">
+            <li><a href="#products" class="nav__link">Logiciels</a></li>
+            <li><a href="#features" class="nav__link">Avantages</a></li>
+            <li><a href="#pricing" class="nav__link">Tarifs</a></li>
+            <li><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
+        <div class="nav__actions">
+            <a href="#contact" class="btn btn--ghost">Nous contacter</a>
+            <a href="#products" class="btn btn--primary">Voir les logiciels</a>
+        </div>
+        <button class="nav__burger" id="burgerBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+    <div class="hero__bg">
+        <div class="hero__orb hero__orb--1"></div>
+        <div class="hero__orb hero__orb--2"></div>
+        <div class="hero__grid"></div>
+    </div>
+    <div class="container hero__content">
+        <div class="hero__badge">
+            <span class="badge-dot"></span>
+            Logiciels de nouvelle génération
+        </div>
+        <h1 class="hero__title">
+            Des outils qui<br>
+            <em>transforment</em> votre<br>
+            façon de travailler
+        </h1>
+        <p class="hero__subtitle">
+            SoftWave conçoit des logiciels professionnels pensés pour la performance, 
+            la sécurité et la simplicité d'usage. Rejoignez +15 000 professionnels satisfaits.
+        </p>
+        <div class="hero__cta">
+            <a href="#products" class="btn btn--primary btn--lg">Explorer les logiciels</a>
+            <a href="#features" class="btn btn--outline btn--lg">
+                <span class="play-icon">▶</span>
+                Voir les démos
+            </a>
+        </div>
+        <div class="hero__stats">
+            <div class="stat">
+                <span class="stat__number">15k+</span>
+                <span class="stat__label">Clients actifs</span>
+            </div>
+            <div class="stat__divider"></div>
+            <div class="stat">
+                <span class="stat__number">4.9★</span>
+                <span class="stat__label">Note moyenne</span>
+            </div>
+            <div class="stat__divider"></div>
+            <div class="stat">
+                <span class="stat__number">99.9%</span>
+                <span class="stat__label">Uptime garanti</span>
+            </div>
+        </div>
+    </div>
+    <div class="hero__scroll">
+        <div class="scroll-indicator"></div>
+        <span>Défiler</span>
+    </div>
+</section>
+
+<!-- ===== LOGOS TRUST ===== -->
+<section class="trust">
+    <div class="container">
+        <p class="trust__label">Ils nous font confiance</p>
+        <div class="trust__logos">
+            <span class="trust__logo">Renault</span>
+            <span class="trust__logo">Décathlon</span>
+            <span class="trust__logo">Société Générale</span>
+            <span class="trust__logo">Orange</span>
+            <span class="trust__logo">Leclerc</span>
+            <span class="trust__logo">Michelin</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section class="products section" id="products">
+    <div class="container">
+        <div class="section__header">
+            <span class="section__tag">Nos logiciels</span>
+            <h2 class="section__title">Solutions pour chaque besoin</h2>
+            <p class="section__desc">Des logiciels pensés pour les professionnels, avec une vraie valeur ajoutée à chaque fonctionnalité.</p>
+        </div>
+
+        <div class="products__filters">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="Productivité">Productivité</button>
+            <button class="filter-btn" data-filter="Sécurité">Sécurité</button>
+            <button class="filter-btn" data-filter="Cloud">Cloud</button>
+            <button class="filter-btn" data-filter="Créativité">Créativité</button>
+        </div>
+
+        <div class="products__grid" id="productsGrid">
+            <!-- Produits statiques (seront remplacés par PHP/API) -->
+
+            <article class="product-card" data-category="Productivité">
+                <div class="product-card__badge badge--popular">Populaire</div>
+                <div class="product-card__icon">📄</div>
+                <div class="product-card__category">Productivité</div>
+                <h3 class="product-card__name">NovaPDF Pro</h3>
+                <p class="product-card__desc">Créez, éditez et gérez vos PDF comme un pro. La solution ultime pour vos documents professionnels.</p>
+                <ul class="product-card__features">
+                    <li>✓ Conversion illimitée</li>
+                    <li>✓ OCR avancé</li>
+                    <li>✓ Signature électronique</li>
+                    <li>✓ Support 24/7</li>
+                </ul>
+                <div class="product-card__pricing">
+                    <span class="price__original">79,99 €</span>
+                    <span class="price__current">49,99 €</span>
+                    <span class="price__period">/licence</span>
+                </div>
+                <a href="#" class="btn btn--primary btn--full">Acheter maintenant</a>
+            </article>
+
+            <article class="product-card" data-category="Sécurité">
+                <div class="product-card__badge badge--new">Nouveau</div>
+                <div class="product-card__icon">🔐</div>
+                <div class="product-card__category">Sécurité</div>
+                <h3 class="product-card__name">SecureVault</h3>
+                <p class="product-card__desc">Coffre-fort numérique avec chiffrement militaire AES-256 et gestionnaire de mots de passe intégré.</p>
+                <ul class="product-card__features">
+                    <li>✓ Chiffrement AES-256</li>
+                    <li>✓ 2FA intégré</li>
+                    <li>✓ Sync cloud sécurisé</li>
+                    <li>✓ Multi-appareils</li>
+                </ul>
+                <div class="product-card__pricing">
+                    <span class="price__current">34,99 €</span>
+                    <span class="price__period">/licence</span>
+                </div>
+                <a href="#" class="btn btn--primary btn--full">Acheter maintenant</a>
+            </article>
+
+            <article class="product-card product-card--featured" data-category="Cloud">
+                <div class="product-card__badge badge--best">Bestseller</div>
+                <div class="product-card__icon">☁️</div>
+                <div class="product-card__category">Cloud</div>
+                <h3 class="product-card__name">DataSync Pro</h3>
+                <p class="product-card__desc">Synchronisation et sauvegarde automatique multi-cloud. Ne perdez plus jamais un fichier important.</p>
+                <ul class="product-card__features">
+                    <li>✓ Sync temps réel</li>
+                    <li>✓ Compatible 15+ clouds</li>
+                    <li>✓ Versionning illimité</li>
+                    <li>✓ API REST</li>
+                </ul>
+                <div class="product-card__pricing">
+                    <span class="price__original">89,99 €</span>
+                    <span class="price__current">59,99 €</span>
+                    <span class="price__period">/licence</span>
+                </div>
+                <a href="#" class="btn btn--primary btn--full">Acheter maintenant</a>
+            </article>
+
+            <article class="product-card" data-category="Créativité">
+                <div class="product-card__icon">🎨</div>
+                <div class="product-card__category">Créativité</div>
+                <h3 class="product-card__name">DesignFlow</h3>
+                <p class="product-card__desc">Suite créative pour designers professionnels. Templates premium et collaboration temps réel.</p>
+                <ul class="product-card__features">
+                    <li>✓ 1000+ templates</li>
+                    <li>✓ Outils vectoriels</li>
+                    <li>✓ Collaboration temps réel</li>
+                    <li>✓ Export multi-format</li>
+                </ul>
+                <div class="product-card__pricing">
+                    <span class="price__original">119,99 €</span>
+                    <span class="price__current">79,99 €</span>
+                    <span class="price__period">/licence</span>
+                </div>
+                <a href="#" class="btn btn--primary btn--full">Acheter maintenant</a>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="features section" id="features">
+    <div class="container">
+        <div class="section__header">
+            <span class="section__tag">Pourquoi SoftWave ?</span>
+            <h2 class="section__title">L'excellence à chaque détail</h2>
+        </div>
+        <div class="features__grid">
+            <div class="feature-card">
+                <div class="feature-card__icon">🛡️</div>
+                <h3>Sécurité maximale</h3>
+                <p>Chiffrement de bout en bout et audits de sécurité réguliers par des experts indépendants.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card__icon">⚡</div>
+                <h3>Performance prouvée</h3>
+                <p>Nos logiciels sont optimisés pour une vitesse d'exécution maximale sur toutes les configs.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card__icon">🔄</div>
+                <h3>Mises à jour gratuites</h3>
+                <p>Recevez toutes les mises à jour majeures et mineures incluses dans votre licence.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card__icon">💬</div>
+                <h3>Support humain 24/7</h3>
+                <p>Une équipe d'experts à votre disposition, 7j/7, par chat, email ou téléphone.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card__icon">🖥️</div>
+                <h3>Multi-plateformes</h3>
+                <p>Compatible Windows, macOS et Linux. Une licence, tous vos appareils couverts.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card__icon">↩️</div>
+                <h3>Remboursement 30j</h3>
+                <p>Pas convaincu ? Récupérez votre argent sans question sous 30 jours.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials section">
+    <div class="container">
+        <div class="section__header">
+            <span class="section__tag">Témoignages</span>
+            <h2 class="section__title">Ce qu'ils en disent</h2>
+        </div>
+        <div class="testimonials__grid">
+            <blockquote class="testimonial">
+                <div class="testimonial__stars">★★★★★</div>
+                <p>« DataSync Pro a révolutionné notre façon de gérer nos données. Gain de temps considérable et zéro perte de fichier depuis 2 ans. »</p>
+                <footer>
+                    <div class="testimonial__avatar">ML</div>
+                    <div>
+                        <strong>Marie Laurent</strong>
+                        <span>Directrice IT, Groupe Renault</span>
+                    </div>
+                </footer>
+            </blockquote>
+            <blockquote class="testimonial testimonial--featured">
+                <div class="testimonial__stars">★★★★★</div>
+                <p>« SecureVault est devenu indispensable. L'interface est magnifique et le niveau de sécurité est rassurant pour toute notre équipe. »</p>
+                <footer>
+                    <div class="testimonial__avatar">TD</div>
+                    <div>
+                        <strong>Thomas Dupont</strong>
+                        <span>RSSI, Cabinet d'avocats Dupont & Associés</span>
+                    </div>
+                </footer>
+            </blockquote>
+            <blockquote class="testimonial">
+                <div class="testimonial__stars">★★★★★</div>
+                <p>« NovaPDF Pro nous a permis de passer nos contrats en 100% digital. Simple, rapide, professionnel. Je recommande sans hésiter. »</p>
+                <footer>
+                    <div class="testimonial__avatar">SA</div>
+                    <div>
+                        <strong>Sophie Arcand</strong>
+                        <span>Office Manager, StartupFactory</span>
+                    </div>
+                </footer>
+            </blockquote>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact section" id="contact">
+    <div class="container">
+        <div class="contact__wrapper">
+            <div class="contact__info">
+                <span class="section__tag">Contact</span>
+                <h2 class="section__title">Parlons de votre projet</h2>
+                <p>Notre équipe commerciale est disponible pour vous conseiller et vous proposer la solution adaptée à vos besoins.</p>
+                <div class="contact__details">
+                    <div class="contact__item">
+                        <span class="contact__icon">📧</span>
+                        <div>
+                            <strong>Email</strong>
+                            <a href="mailto:contact@softwave.fr">contact@softwave.fr</a>
+                        </div>
+                    </div>
+                    <div class="contact__item">
+                        <span class="contact__icon">📞</span>
+                        <div>
+                            <strong>Téléphone</strong>
+                            <a href="tel:+33123456789">+33 (0)1 23 45 67 89</a>
+                        </div>
+                    </div>
+                    <div class="contact__item">
+                        <span class="contact__icon">⏰</span>
+                        <div>
+                            <strong>Horaires</strong>
+                            <span>Lun-Ven, 9h-18h</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact__form" id="contactForm" novalidate>
+                <!-- Honeypot anti-spam -->
+                <div style="display:none">
+                    <input type="text" name="website" tabindex="-1" autocomplete="off">
+                </div>
+                <input type="hidden" name="csrf_token" id="csrfToken" value="">
+
+                <div class="form__row">
+                    <div class="form__group">
+                        <label class="form__label" for="name">Nom complet *</label>
+                        <input type="text" id="name" name="name" class="form__input" placeholder="Jean Dupont" required minlength="2">
+                        <span class="form__error" id="nameError"></span>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="email">Email professionnel *</label>
+                        <input type="email" id="email" name="email" class="form__input" placeholder="jean@entreprise.fr" required>
+                        <span class="form__error" id="emailError"></span>
+                    </div>
+                </div>
+
+                <div class="form__group">
+                    <label class="form__label" for="subject">Sujet *</label>
+                    <select id="subject" name="subject" class="form__input form__select" required>
+                        <option value="">Sélectionnez un sujet...</option>
+                        <option value="Demande de démo">Demande de démo</option>
+                        <option value="Question commerciale">Question commerciale</option>
+                        <option value="Support technique">Support technique</option>
+                        <option value="Partenariat">Partenariat</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                    <span class="form__error" id="subjectError"></span>
+                </div>
+
+                <div class="form__group">
+                    <label class="form__label" for="message">Message *</label>
+                    <textarea id="message" name="message" class="form__input form__textarea" placeholder="Décrivez votre projet ou votre question..." required minlength="20" rows="5"></textarea>
+                    <span class="form__error" id="messageError"></span>
+                    <span class="form__counter"><span id="charCount">0</span>/5000</span>
+                </div>
+
+                <div class="form__group form__check">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <span class="checkbox-custom"></span>
+                        J'accepte la <a href="#" class="link">politique de confidentialité</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn--primary btn--lg btn--full" id="submitBtn">
+                    <span class="btn__text">Envoyer le message</span>
+                    <span class="btn__loader" style="display:none">⟳ Envoi en cours...</span>
+                </button>
+
+                <div class="form__feedback" id="formFeedback"></div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__top">
+            <div class="footer__brand">
+                <a href="#" class="nav__logo">
+                    <span class="logo-icon">⬡</span>
+                    <span>Soft<strong>Wave</strong></span>
+                </a>
+                <p>Des logiciels professionnels pour booster votre productivité, votre sécurité et votre créativité.</p>
+                <div class="footer__social">
+                    <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                    <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                    <a href="#" class="social-link" aria-label="GitHub">⌥</a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <h4>Logiciels</h4>
+                <ul>
+                    <li><a href="#">NovaPDF Pro</a></li>
+                    <li><a href="#">SecureVault</a></li>
+                    <li><a href="#">DataSync Pro</a></li>
+                    <li><a href="#">DesignFlow</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Entreprise</h4>
+                <ul>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Carrières</a></li>
+                    <li><a href="#">Presse</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">Status</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2025 SoftWave SAS. Tous droits réservés.</p>
+            <div class="footer__links">
+                <a href="#">Mentions légales</a>
+                <a href="#">CGV</a>
+                <a href="#">Confidentialité</a>
+                <a href="#">Cookies</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
