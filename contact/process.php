@@ -1,60 +1,26 @@
 <?php
-// ============================================
-// Traitement du formulaire de contact
-// ============================================
-
 require_once __DIR__ . '/../includes/config.php';
 
 header('Content-Type: application/json');
-header('X-Content-Type-Options: nosniff');
 
-// Vérifier méthode
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['success' => false, 'message' => 'Méthode non autorisée']);
     exit;
 }
 
-// Vérifier token CSRF
-if (!isset($_POST['csrf_token']) || !isset($_SESSION['csrf_token']) || 
-    !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
-    http_response_code(403);
-    echo json_encode(['success' => false, 'message' => 'Token de sécurité invalide']);
-    exit;
-}
-
-// Rate limiting simple (1 message par 60s par IP)
-$ip = $_SERVER['REMOTE_ADDR'];
-$rate_key = 'contact_' . $ip;
-if (isset($_SESSION[$rate_key]) && (time() - $_SESSION[$rate_key]) < 60) {
-    http_response_code(429);
-    echo json_encode(['success' => false, 'message' => 'Trop de messages. Attendez 1 minute.']);
-    exit;
-}
-
-// Validation et sanitisation
-$nom     = trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS));
-$email   = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
-$sujet   = trim(filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS));
-$message = trim(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS));
-$honey   = trim($_POST['website'] ?? ''); // Honeypot anti-spam
-
-// Honeypot check
-if (!empty($honey)) {
-    http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Spam détecté']);
-    exit;
-}
+// Nettoyage des données
+$nom     = trim(filter_input(INPUT_POST, 'name',    FILTER_SANITIZE_SPECIAL_CHARS) ?? '');
+$email   = trim(filter_input(INPUT_POST, 'email',   FILTER_SANITIZE_EMAIL) ?? '');
+$sujet   = trim(filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS) ?? '');
+$message = trim(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS) ?? '');
+$ip      = $_SERVER['REMOTE_ADDR'];
 
 // Validation
 $errors = [];
-if (empty($nom) || mb_strlen($nom) < 2)    $errors[] = 'Le nom doit faire au moins 2 caractères';
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Email invalide';
-if (empty($sujet)) $errors[] = 'Veuillez sélectionner un sujet';
-$allowed_subjects = ['Demande de démo', 'Question commerciale', 'Support technique', 'Partenariat', 'Autre'];
-if (!empty($sujet) && !in_array($sujet, $allowed_subjects)) $errors[] = 'Sujet invalide';
-if (empty($message) || mb_strlen($message) < 20) $errors[] = 'Le message doit faire au moins 20 caractères';
-if (mb_strlen($message) > 5000) $errors[] = 'Message trop long (5000 caractères max)';
+if (mb_strlen($nom) < 2)                          $errors[] = 'Le nom est trop court';
+if (!filter_var($email, FILTER_VALIDATE_EMAIL))   $errors[] = 'Email invalide';
+if (mb_strlen($message) < 20)                     $errors[] = 'Message trop court (20 car. min)';
 
 if (!empty($errors)) {
     http_response_code(422);
@@ -64,18 +30,12 @@ if (!empty($errors)) {
 
 try {
     $db = getDB();
-
-    // Enregistrer en BDD
-    $stmt = $db->prepare("INSERT INTO messages_contact (nom, email, sujet, message, adresse_ip) VALUES (?, ?, ?, ?, ?)");
+    $stmt = $db->prepare("
+        INSERT INTO messages_contact (nom, email, sujet, message, adresse_ip, est_lu, est_repondu, cree_le) 
+        VALUES (?, ?, ?, ?, ?, 0, 0, NOW())
+    ");
+    
     $stmt->execute([$nom, $email, $sujet, $message, $ip]);
-
-    // Rate limit
-    $_SESSION[$rate_key] = time();
-    // Renouveler CSRF
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-
-    // Email de notification (optionnel, nécessite PHPMailer)
-    // sendContactEmail($name, $email, $subject, $message);
 
     echo json_encode([
         'success' => true,

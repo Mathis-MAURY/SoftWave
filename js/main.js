@@ -153,18 +153,16 @@ contactForm?.addEventListener('submit', async (e) => {
     try {
         const formData = new FormData(contactForm);
 
-        // En mode demo sans PHP, simuler une réponse positive
-        await new Promise(r => setTimeout(r, 1200));
-
-        // En production, décommenter ce bloc et commenter la ligne ci-dessus :
-        /*
-        const response = await fetch('/softwave/contact/process.php', {
+        const response = await fetch('contact/process.php', {
             method: 'POST',
             body: formData
         });
+        
         const data = await response.json();
-        if (!data.success) throw new Error(data.message || 'Erreur serveur');
-        */
+        
+        if (!data.success) {
+            throw new Error(data.message || data.errors?.join(', ') || 'Erreur serveur');
+        }
 
         contactForm.reset();
         charCount.textContent = '0';
@@ -174,7 +172,8 @@ contactForm?.addEventListener('submit', async (e) => {
         showFeedback('✓ Message envoyé avec succès ! Nous vous répondrons sous 24h.', 'success');
 
     } catch (err) {
-        showFeedback('Une erreur est survenue. Veuillez réessayer.', 'error');
+        console.error('Erreur formulaire contact:', err);
+        showFeedback(err.message || 'Une erreur est survenue. Veuillez réessayer.', 'error');
     } finally {
         submitBtn.disabled = false;
         btnText.style.display = 'inline';
