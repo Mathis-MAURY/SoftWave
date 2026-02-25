@@ -5,22 +5,21 @@
 ## 🗂️ Structure du projet
 
 ```
-softwave/
-│   ├── index.html          # Version statique
-│   ├── index.php           # Version dynamique PHP (recommandée)
-│   ├── css/
-│   │   └── style.css       # Styles principaux
-│   ├── js/
-│   │   └── main.js         # JS principal
-│   └── api/
-│       └── products.php    # API REST produits
+SITE_RESEAUX/
+├── api/
+│   └── products.php        # API REST produits
 ├── contact/
 │   └── process.php         # Traitement formulaire de contact
+├── css/
+│   └── style.css           # Styles principaux
 ├── includes/
 │   └── config.php          # Configuration BDD + constantes
-├── admin/                  # Interface d'administration (à développer)
-├── database.sql            # Schéma et données de démo
+├── js/
+│   └── main.js             # JavaScript principal
 ├── .gitignore
+├── database.sql            # Schéma BDD + données de démo
+├── index.html              # Version statique
+├── index.php               # Version dynamique PHP (recommandée)
 └── README.md
 ```
 
@@ -43,7 +42,6 @@ mysql -u root -p < database.sql
 ### 3. Configuration
 
 ```bash
-cp includes/config.example.php includes/config.php
 # Éditer includes/config.php avec vos paramètres
 ```
 
@@ -53,22 +51,13 @@ define('DB_HOST', 'localhost');
 define('DB_NAME', 'softwave');
 define('DB_USER', 'votre_user');
 define('DB_PASS', 'votre_password');
-define('SITE_URL', 'https://votre-domaine.fr');
+define('SITE_URL', 'http://localhost/Site_Reseaux');
 ```
 
-### 4. Serveur de développement
-
-```bash
-# PHP built-in server
-php -S localhost:8000 -t public/
-
-# Ou avec Apache : pointer DocumentRoot vers /softwave/public/
-```
-
-### 5. Accéder au site
+### 4. Accéder au site (XAMPP)
 
 ```
-http://localhost:8000
+http://localhost/Site_Reseaux/index.php        ← Site principal
 ```
 
 ## 🔐 Sécurité intégrée

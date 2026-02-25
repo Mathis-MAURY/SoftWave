@@ -33,9 +33,9 @@ if (isset($_SESSION[$rate_key]) && (time() - $_SESSION[$rate_key]) < 60) {
 }
 
 // Validation et sanitisation
-$name    = trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS));
+$nom     = trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS));
 $email   = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
-$subject = trim(filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS));
+$sujet   = trim(filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS));
 $message = trim(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS));
 $honey   = trim($_POST['website'] ?? ''); // Honeypot anti-spam
 
@@ -48,9 +48,11 @@ if (!empty($honey)) {
 
 // Validation
 $errors = [];
-if (empty($name) || mb_strlen($name) < 2)    $errors[] = 'Le nom doit faire au moins 2 caractères';
+if (empty($nom) || mb_strlen($nom) < 2)    $errors[] = 'Le nom doit faire au moins 2 caractères';
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Email invalide';
-if (empty($subject) || mb_strlen($subject) < 5) $errors[] = 'Le sujet doit faire au moins 5 caractères';
+if (empty($sujet)) $errors[] = 'Veuillez sélectionner un sujet';
+$allowed_subjects = ['Demande de démo', 'Question commerciale', 'Support technique', 'Partenariat', 'Autre'];
+if (!empty($sujet) && !in_array($sujet, $allowed_subjects)) $errors[] = 'Sujet invalide';
 if (empty($message) || mb_strlen($message) < 20) $errors[] = 'Le message doit faire au moins 20 caractères';
 if (mb_strlen($message) > 5000) $errors[] = 'Message trop long (5000 caractères max)';
 
@@ -64,8 +66,8 @@ try {
     $db = getDB();
 
     // Enregistrer en BDD
-    $stmt = $db->prepare("INSERT INTO contacts (name, email, subject, message, ip_address) VALUES (?, ?, ?, ?, ?)");
-    $stmt->execute([$name, $email, $subject, $message, $ip]);
+    $stmt = $db->prepare("INSERT INTO messages_contact (nom, email, sujet, message, adresse_ip) VALUES (?, ?, ?, ?, ?)");
+    $stmt->execute([$nom, $email, $sujet, $message, $ip]);
 
     // Rate limit
     $_SESSION[$rate_key] = time();

@@ -13,13 +13,13 @@ if (empty($_SESSION['csrf_token'])) {
 $csrfToken = $_SESSION['csrf_token'];
 
 // Récupérer les produits depuis la BDD
-$products = [];
+$produits = [];
 try {
     $db = getDB();
-    $stmt = $db->query("SELECT * FROM products WHERE is_active = 1 ORDER BY created_at DESC");
-    $products = $stmt->fetchAll();
-    foreach ($products as &$p) {
-        $p['features'] = json_decode($p['features'], true) ?? [];
+    $stmt = $db->query("SELECT p.*, c.nom AS categorie_nom, c.slug AS categorie_slug FROM produits p LEFT JOIN categories c ON c.id = p.categorie_id WHERE p.est_actif = 1 ORDER BY p.cree_le DESC");
+    $produits = $stmt->fetchAll();
+    foreach ($produits as &$p) {
+        $p['fonctionnalites'] = json_decode($p['fonctionnalites'], true) ?? [];
     }
 } catch (PDOException $e) {
     // Fallback : produits statiques dans index.html
@@ -53,9 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <?php
 // Injecter les produits depuis la BDD
-if (!empty($products)) {
+if (!empty($produits)) {
     echo '<script>';
-    echo 'window.SOFTWAVE_PRODUCTS = ' . json_encode($products) . ';';
+    echo 'window.SOFTWAVE_PRODUITS = ' . json_encode($produits) . ';';
     echo '</script>';
 }
 ?>
