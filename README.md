@@ -30,7 +30,7 @@ softwave/
 
 ```bash
 git init
-git clone https://github.com/votre-user/softwave.git
+git clone https://github.com/Mathis-MAURY/softwave.git
 cd softwave
 ```
 
