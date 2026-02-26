@@ -191,22 +191,6 @@ mysql -u root -p softwave < database/migration_rename_password.sql
 - [ ] Historique de navigation produits
 - [ ] Système de notation/avis clients
 
-## 🌿 Workflow Git
-
-```bash
-# Branches recommandées
-main          # Production
-develop       # Développement
-feature/*     # Nouvelles fonctionnalités
-hotfix/*      # Corrections urgentes
-
-# Exemple de workflow
-git checkout -b feature/payment-integration
-git add .
-git commit -m "feat: add payment gateway integration"
-git push origin feature/payment-integration
-```
-
 ## 📝 Notes de développement
 
 - Les mots de passe sont stockés avec `password_hash()` (bcrypt, coût 12)
