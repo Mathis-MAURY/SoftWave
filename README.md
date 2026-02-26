@@ -78,7 +78,7 @@ http://localhost/softwave/login.php     ← Connexion (admin ou client)
 http://localhost/softwave/register.php  ← Inscription client
 ```
 
-##  Identifiants par défaut
+## Identifiants par défaut
 
 **Administrateur :**
 
@@ -89,7 +89,7 @@ http://localhost/softwave/register.php  ← Inscription client
 
 - Créer un compte via `register.php`
 
-##  Base de données
+## Base de données
 
 ### Tables principales
 
@@ -111,9 +111,9 @@ Si vous avez une base avec les anciennes colonnes `mot_de_passe_hash` :
 mysql -u root -p softwave < database/migration_rename_password.sql
 ```
 
-##  Fonctionnalités implémentées
+## Fonctionnalités implémentées
 
-###  E-commerce
+### E-commerce
 
 - ✅ Catalogue produits dynamique (via API REST)
 - ✅ Panier d'achat avec sessionStorage
