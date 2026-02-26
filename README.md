@@ -2,7 +2,7 @@
 
 > Plateforme e-commerce complète pour la vente de logiciels avec système d'authentification double (admin/client), panier d'achat, processus de commande et gestion des produits.
 
-## 🗂️ Structure du projet
+##  Structure du projet
 
 ```
 softwave/
@@ -33,7 +33,7 @@ softwave/
 └── README.md
 ```
 
-## 🚀 Installation rapide
+##  Installation rapide
 
 ### 1. Cloner le projet
 
@@ -78,7 +78,7 @@ http://localhost/softwave/login.php     ← Connexion (admin ou client)
 http://localhost/softwave/register.php  ← Inscription client
 ```
 
-## 🔑 Identifiants par défaut
+##  Identifiants par défaut
 
 **Administrateur :**
 
@@ -89,7 +89,7 @@ http://localhost/softwave/register.php  ← Inscription client
 
 - Créer un compte via `register.php`
 
-## 💾 Base de données
+##  Base de données
 
 ### Tables principales
 
@@ -111,9 +111,9 @@ Si vous avez une base avec les anciennes colonnes `mot_de_passe_hash` :
 mysql -u root -p softwave < database/migration_rename_password.sql
 ```
 
-## ✨ Fonctionnalités implémentées
+##  Fonctionnalités implémentées
 
-### 🛒 E-commerce
+###  E-commerce
 
 - ✅ Catalogue produits dynamique (via API REST)
 - ✅ Panier d'achat avec sessionStorage
@@ -122,7 +122,7 @@ mysql -u root -p softwave < database/migration_rename_password.sql
 - ✅ Page de confirmation avec référence de commande
 - ✅ Calcul automatique TVA (20%)
 
-### 👤 Authentification
+###  Authentification
 
 - ✅ Connexion unifiée (admin + client sur même page)
 - ✅ Redirection automatique (admin → dashboard, client → site)
@@ -131,26 +131,26 @@ mysql -u root -p softwave < database/migration_rename_password.sql
 - ✅ Protection CSRF (token par session)
 - ✅ Sessions sécurisées (httponly, samesite)
 
-### 📊 Dashboard Admin
+###  Dashboard Admin
 
 - ✅ Vue d'ensemble des commandes
 - ✅ Statistiques en temps réel
 - ✅ Gestion des produits
 - ✅ Accès sécurisé (vérification session)
 
-### 🙍 Espace Client
+###  Espace Client
 
 - ✅ Historique des commandes
 - ✅ Détails de compte
 - ✅ Déconnexion sécurisée
 
-### 📧 Contact
+###  Contact
 
 - ✅ Formulaire de contact sécurisé
 - ✅ Validation serveur et client
 - ✅ Honeypot anti-spam
 
-## 🔐 Sécurité intégrée
+##  Sécurité intégrée
 
 - ✅ Protection CSRF (token par session)
 - ✅ Validation & sanitisation des inputs
@@ -161,7 +161,7 @@ mysql -u root -p softwave < database/migration_rename_password.sql
 - ✅ Sessions sécurisées (httponly, samesite)
 - ✅ Hachage bcrypt pour mots de passe
 
-## 🛠️ Stack technique
+##  Stack technique
 
 | Couche          | Technologie                  |
 | --------------- | ---------------------------- |
@@ -172,26 +172,15 @@ mysql -u root -p softwave < database/migration_rename_password.sql
 | Fonts           | Google Fonts (Syne, DM Sans) |
 | État panier     | sessionStorage               |
 
-## 📋 Pré-requis
+##  Pré-requis
 
 - PHP >= 8.1 (extensions: PDO, PDO_MySQL, mbstring, session)
 - MySQL >= 8.0 ou MariaDB >= 10.6
 - Apache (XAMPP recommandé pour Windows)
 - Navigateur moderne avec support ES6+ et sessionStorage
 
-## 🚧 Roadmap futures améliorations
 
-- [ ] Intégration Stripe / PayPal pour paiements réels
-- [ ] Envoi emails transactionnels (PHPMailer)
-- [ ] Génération de clés de licence produits
-- [ ] Téléchargement des logiciels depuis espace client
-- [ ] Panel admin avancé (CRUD complet produits/clients/commandes)
-- [ ] Système de coupons de réduction
-- [ ] Recherche et filtres produits
-- [ ] Historique de navigation produits
-- [ ] Système de notation/avis clients
-
-## 📝 Notes de développement
+##  Notes de développement
 
 - Les mots de passe sont stockés avec `password_hash()` (bcrypt, coût 12)
 - Le panier utilise `sessionStorage` (clé: `sw_cart`)
